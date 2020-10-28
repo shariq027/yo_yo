@@ -1,0 +1,68 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #e01a76;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.athlete-list > .row{
+  padding: 10px 0px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.athlete-list > .row:last-child {
+  border-bottom: 2px solid lightgrey;
+}
+
+.athlete-list > .row:first-child {
+  border-top: 2px solid lightgrey;
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}
+
+.play-content{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  text-align: center;
+  width: 100%;
+  z-index: 1;
+}
+
+.status{
+  padding: 1px 5px;
+  border-radius: 10px;
+  color: white;
+  background-color: #6d6d71;
+  margin: 10px;
+}
+
+.warn-color{
+  background-color: #6d6d71;
+}
+
+.warned-color{
+  background-color: #a3a3a7;
+}
+
+.stop-color{
+  background-color:#ff0000;
+}
+
+.font-20{
+  font-size: 20px;
+}

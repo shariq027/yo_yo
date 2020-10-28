@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="col">
+    <div class="row pt-2 align-items-center">
+      <span><fa-icon class="fa-sm" [icon]="faChevronLeft"></fa-icon></span>
+      <span class="m-auto font-weight-bold font-20">Yo Yo Test</span>
+    </div>
+    <div class="row">
+      <div class="m-auto p-3 rounded-circle position-relative">
+        <circle-progress [percent]="percentage" [radius]="100" (click)="play()"
+          [outerStrokeColor]="'#d24d4d'" [animation]="true" [animationDuration]="300"
+          [showZeroOuterStroke]="false" [showInnerStroke]="true" [innerStrokeColor]="'#d6d4d4f5'"
+          [innerStrokeWidth]="1"
+          [imageSrc]="currentShuttle ? '':'./../../assets/images/play.png'" 
+          [imageHeight]="50" [imageWidth]="50" [showImage]="true" class="cursor-pointer">
+        </circle-progress>
+        <div *ngIf="currentShuttle" class="col play-content">
+          <div><span>Level {{currentShuttle.speedLevel}}</span></div>
+          <div><span>Shuttle {{currentShuttle.shuttleNo}}</span></div>
+          <div><span>{{currentShuttle.speed}} km/hr</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="border-right col text-center">
+        <span>Next Shuttle</span>
+        <div><span>{{nextShuttle}} s</span></div>
+      </div>
+      <div class="border-right col text-center">
+        <span>Total Time</span>
+        <div><span>{{totalTime}} s</span></div>
+      </div>
+      <div class="col text-center">
+        <span>Total Distance</span>
+        <div><span>{{totalDistance}} m</span></div>
+      </div>
+    </div>
+    <div class="">
+      <div class="row pt-3 pb-3 font-weight-bold">
+        <span>Track</span>
+      </div>
+      <div class="athlete-list">
+        <ng-container *ngFor="let item of athletes; let i = index">
+          <div class="row d-flex justify-content-between">
+            <div>{{i+1}}. {{item.name}}</div>
+            <div class="pr-1">
+              <span class="warn-color status cursor-pointer" *ngIf="!item.warned && !item.stopped"
+                (click)="warn(i)">warn</span>
+              <span class="warned-color status" *ngIf="item.warned && !item.stopped">warned</span>
+              <span class="stop-color status cursor-pointer" *ngIf="!item.stopped"
+                (click)="stop(i)">stop</span>
+              <span *ngIf="item.stopped">{{item.levelReached}}</span>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
